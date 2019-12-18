@@ -14,6 +14,7 @@ const displayWinningMsg = function (player) {  // DREW
 
 const displayTieMsg = function () {     // DREW
     // display tie message
+    alert('Tie game')
 }
 
 const displayActivePlayer = function () {   // REGGY
