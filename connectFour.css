@@ -1,8 +1,13 @@
+.wrapper{
+    text-align: center;  
+}
+
 .grid{
     width: 350px;
     height: 300px;
     border: 1px solid black;
     display:flex;
+    margin: auto;
 }
 .column{
     border: 1px solid black;
@@ -23,4 +28,10 @@
 }
 .disc.red{
     background: red;
+}
+button{
+    border: 2px solid black;
+    font-size: x-large;
+    margin-top: 20px;
+    
 }
