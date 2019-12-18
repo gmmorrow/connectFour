@@ -8,6 +8,7 @@
     border: 1px solid black;
     display:flex;
     margin: auto;
+    position: relative;
 }
 .column{
     border: 1px solid black;
@@ -37,4 +38,25 @@ button{
 .message{
     font-size: larger;
     margin-top: 20px;
+}
+.line{
+    position: absolute;
+    border-bottom: 2px solid black;
+    width: 100%;
+}
+
+.line.one {
+    top: 50px;
+}
+.line.two {
+    top: 100px;
+}
+.line.three {
+    top: 150px;
+}
+.line.four {
+    top: 200px;
+}
+.line.five {
+    top: 250px;
 }
