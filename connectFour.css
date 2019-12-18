@@ -23,6 +23,7 @@
     height: 40px;
     border-radius: 50%;
     margin-bottom: 5px;
+    margin-top: 5px;
 }
 .disc.black{
     background: black;
