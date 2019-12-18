@@ -25,7 +25,7 @@ const switchToNextPlayer = function () {    // REGGY
     // switch player
 }
 
-const isWinner = function (player) {   // DREW
+const isWinner = function (player, board) {   // DREW
     // check win condition
     const width = board[0].length
     const height = board.length
