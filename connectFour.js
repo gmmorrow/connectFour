@@ -41,6 +41,9 @@ const setUpColumnClickHandlers = function () {      // REGGY
 
 const initializeGame = function () {        // DREW
     // initilalize game
+    // displayBoard(boardModel)
+    displayActivePlayer()
+    setUpColumnClickHandlers()
 }
 
 initializeGame()
