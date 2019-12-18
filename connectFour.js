@@ -7,8 +7,9 @@ let boardModel = [
     ['', '', '', '', '', '', ''],
 ]
 
-const displayWinningMsg = function () {  // DREW
+const displayWinningMsg = function (player) {  // DREW
     // display winning message
+    alert(player + 'wins')
 }
 
 const displayTieMsg = function () {     // DREW
