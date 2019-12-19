@@ -1,0 +1,63 @@
+.wrapper{
+    text-align: center;  
+}
+
+.grid{
+    width: 350px;
+    height: 300px;
+    border: 1px solid black;
+    display:flex;
+    margin: auto;
+    position: relative;
+}
+.column{
+    border: 1px solid black;
+    flex-basis: 50px;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+.disc{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+.disc.black{
+    background: black;
+}
+.disc.red{
+    background: red;
+}
+button{
+    border: 2px solid black;
+    font-size: x-large;
+    margin-top: 20px;
+}
+.message{
+    font-size: larger;
+    margin-top: 20px;
+}
+.line{
+    position: absolute;
+    border-bottom: 2px solid black;
+    width: 100%;
+}
+
+.line.one {
+    top: 50px;
+}
+.line.two {
+    top: 100px;
+}
+.line.three {
+    top: 150px;
+}
+.line.four {
+    top: 200px;
+}
+.line.five {
+    top: 250px;
+}
