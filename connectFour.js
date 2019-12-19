@@ -7,60 +7,69 @@ let boardModel = [
     ['', '', '', '', '', '', ''],
 ]
 
-const displayWinningMsg = function (player) {  // DREW
+let activePlayer = "red"
+
+const displayWinningMsg = function(player) { // DREW
     // display winning message
     alert(player + 'wins')
 }
 
-const displayTieMsg = function () {     // DREW
+const displayTieMsg = function() { // DREW
     // display tie message
     alert('Tie game')
 }
 
-const displayActivePlayer = function () {   // REGGY
+const displayActivePlayer = function() { // REGGY
     // display active player disc
+    return activePlayer;
 }
 
-const switchToNextPlayer = function () {    // REGGY
+const switchToNextPlayer = function() { // REGGY
     // switch player
+    if (activePlayer === "red") {
+        activePlayer = "black"
+    } else if (activePlayer === "black") {
+        activePlayer = "red"
+    }
+    return activePlayer;
 }
 
-const isWinner = function (player, board) {   // DREW
+const isWinner = function(player, board) { // DREW
     // check win condition
     const width = board[0].length
     const height = board.length
 
     // horizontal check
-    for (let col=0; col<width-3; col++) {
-        for (let row=0; row<height; row++) {
-            if (board[row][col] === player && board[row][col+1] === player && board[row][col+2] === player && board[row][col+3] === player) {
+    for (let col = 0; col < width - 3; col++) {
+        for (let row = 0; row < height; row++) {
+            if (board[row][col] === player && board[row][col + 1] === player && board[row][col + 2] === player && board[row][col + 3] === player) {
                 return true
             }
         }
     }
 
     // vertical check
-    for (let row=0; row<height-3; row++) {
-        for (let col=0; col<width; col++) {
-            if (board[row][col] === player && board[row+1][col] === player && board[row+2][col] === player && board[row+3][col] === player) {
+    for (let row = 0; row < height - 3; row++) {
+        for (let col = 0; col < width; col++) {
+            if (board[row][col] === player && board[row + 1][col] === player && board[row + 2][col] === player && board[row + 3][col] === player) {
                 return true
             }
         }
     }
 
     //diagonal ascending
-    for (let row=3; row<height; row++) {
-        for (let col=0; col<width-3; col++) {
-            if (board[row][col] === player && board[row-1][col+1] === player && board[row-2][col+2] === player && board[row-3][col+3] === player) {
+    for (let row = 3; row < height; row++) {
+        for (let col = 0; col < width - 3; col++) {
+            if (board[row][col] === player && board[row - 1][col + 1] === player && board[row - 2][col + 2] === player && board[row - 3][col + 3] === player) {
                 return true
             }
         }
     }
 
     // diagonal descending
-    for (let row=0; row<height-3; row++) {
-        for (let col=0; col<width-3; col++) {
-            if (board[row][col] === player && board[row+1][col+1] === player && board[row+2][col+2] === player && board[row+3][col+3] === player) {
+    for (let row = 0; row < height - 3; row++) {
+        for (let col = 0; col < width - 3; col++) {
+            if (board[row][col] === player && board[row + 1][col + 1] === player && board[row + 2][col + 2] === player && board[row + 3][col + 3] === player) {
                 return true
             }
         }
@@ -68,19 +77,39 @@ const isWinner = function (player, board) {   // DREW
     return false
 }
 
-const columnClickHandler = function (evt) {         // REGGY
+const setUpColumnClickHandlers = function() { // REGGY
+    // set up click handlers 
+
+    let allColumns = document.querySelectorAll(".column");
+    for (col = 0; col < board[0].length; col++) {
+        allColumns[col].addEventListener("click", columnClickHandler);
+    }
+}
+
+const columnClickHandler = function(evt) { // REGGY
     // triggers when column is clicked
+    dropDiskIntoColumn();
+    return isWinner();
 }
 
-const dropDiskIntoColumn = function (column) {      // REGGY
+const dropDiskIntoColumn = function(column) { // REGGY
     // drop disc in column
+
+    if (displayActivePlayer() === "red") {
+        let newDiv = document.createElement("div");
+        newDiv.className = "disc red";
+        column.appendChild(newDiv);
+    } else if (displayActivePlayer() === "black") {
+        let newDiv = document.createElement("div");
+        newDiv.className = "disc black";
+        column.appendChild(newDiv);
+    }
+    switchToNextPlayer()
+
 }
 
-const setUpColumnClickHandlers = function () {      // REGGY
-    // set up click handlers
-}
 
-const initializeGame = function () {        // DREW
+const initializeGame = function() { // DREW
     // initilalize game
     // displayBoard(boardModel)
     displayActivePlayer()
