@@ -8,23 +8,25 @@ let boardModel = [
 ]
 
 let activePlayer = "red"
+const width = board[0].length
+const height = board.length
 
-const displayMessage = function (message) {
+const displayMessage = function(message) {
     var element = document.getElementById("message")
-    element.textContent= message
+    element.textContent = message
 }
 
-const displayWinningMsg = function (player) {  // DREW
+const displayWinningMsg = function(player) { // DREW
     // display winning message
     alert(player + ' wins')
-    // put in message div
+        // put in message div
     displayMessage(player + ' wins')
 }
 
 const displayTieMsg = function() { // DREW
     // display tie message
     alert('Tie game')
-    // put in message div
+        // put in message div
     displayMessage('Tie game')
 }
 
@@ -45,8 +47,6 @@ const switchToNextPlayer = function() { // REGGY
 
 const isWinner = function(player, board) { // DREW
     // check win condition
-    const width = board[0].length
-    const height = board.length
 
     // horizontal check
     for (let col = 0; col < width - 3; col++) {
@@ -117,11 +117,11 @@ const dropDiskIntoColumn = function(column) { // REGGY
 
 }
 
-document.querySelector('.resetButton').onclick = function() {    // LEA
+document.querySelector('.resetButton').onclick = function() { // LEA
 
 }
 
-const initializeGame = function () {        // DREW
+const initializeGame = function() { // DREW
     // initilalize game
     // displayBoard(boardModel)
     displayActivePlayer()
