@@ -9,12 +9,18 @@ let boardModel = [
 
 const displayWinningMsg = function (player) {  // DREW
     // display winning message
-    alert(player + 'wins')
+    alert(player + ' wins')
+    // put in message div
+    var message= document.getElementById("message")
+    message.textContent= player + ' wins'
 }
 
 const displayTieMsg = function () {     // DREW
     // display tie message
     alert('Tie game')
+    // put in message div
+    var message= document.getElementById("message")
+    message.textContent= 'Tie game'
 }
 
 const displayActivePlayer = function () {   // REGGY
