@@ -8,8 +8,8 @@ let boardModel = [
 ]
 
 let activePlayer = "red"
-const width = board[0].length
-const height = board.length
+const width = boardModel[0].length
+const height = boardModel.length
 
 const displayMessage = function(message) {
     var element = document.getElementById("message")
@@ -90,7 +90,7 @@ const setUpColumnClickHandlers = function() { // REGGY
     // set up click handlers 
 
     let allColumns = document.querySelectorAll(".column");
-    for (col = 0; col < board[0].length; col++) {
+    for (col = 0; col < width; col++) {
         allColumns[col].addEventListener("click", columnClickHandler);
     }
 }
