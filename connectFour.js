@@ -7,14 +7,23 @@ let boardModel = [
     ['', '', '', '', '', '', ''],
 ]
 
+const displayMessage = function (message) {
+    var element = document.getElementById("message")
+    element.textContent= message
+}
+
 const displayWinningMsg = function (player) {  // DREW
     // display winning message
-    alert(player + 'wins')
+    alert(player + ' wins')
+    // put in message div
+    displayMessage(player + ' wins')
 }
 
 const displayTieMsg = function () {     // DREW
     // display tie message
     alert('Tie game')
+    // put in message div
+    displayMessage('Tie game')
 }
 
 const displayActivePlayer = function () {   // REGGY
