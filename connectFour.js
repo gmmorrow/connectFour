@@ -89,6 +89,10 @@ const setUpColumnClickHandlers = function () {      // REGGY
     // set up click handlers
 }
 
+document.querySelector('.resetButton').onclick = function() {    // LEA
+
+}
+
 const initializeGame = function () {        // DREW
     // initilalize game
     // displayBoard(boardModel)
