@@ -7,18 +7,14 @@ let boardModel = [
     ['', '', '', '', '', '', ''],
 ]
 
-<<<<<<< HEAD
 let activePlayer = "red"
 
-const displayWinningMsg = function(player) { // DREW
-=======
 const displayMessage = function (message) {
     var element = document.getElementById("message")
     element.textContent= message
 }
 
 const displayWinningMsg = function (player) {  // DREW
->>>>>>> 3578340da98207b942ab6396e4bc2e623672b7c9
     // display winning message
     alert(player + ' wins')
     // put in message div
@@ -121,16 +117,11 @@ const dropDiskIntoColumn = function(column) { // REGGY
 
 }
 
-<<<<<<< HEAD
-
-const initializeGame = function() { // DREW
-=======
 document.querySelector('.resetButton').onclick = function() {    // LEA
 
 }
 
 const initializeGame = function () {        // DREW
->>>>>>> 3578340da98207b942ab6396e4bc2e623672b7c9
     // initilalize game
     // displayBoard(boardModel)
     displayActivePlayer()
