@@ -6,7 +6,7 @@ let boardModel = [
     ['', '', '', '', '', '', ''],
     ['', '', '', '', '', '', ''],
 ]
-
+let counter
 let activePlayer = "red"
 const width = boardModel[0].length
 const height = boardModel.length
@@ -18,14 +18,12 @@ const displayMessage = function(message) {
 
 const displayWinningMsg = function(player) { // DREW
     // display winning message
-    alert(player + ' wins')
         // put in message div
     displayMessage(player + ' wins')
 }
 
 const displayTieMsg = function() { // DREW
     // display tie message
-    alert('Tie game')
         // put in message div
     displayMessage('Tie game')
 }
@@ -120,12 +118,21 @@ const dropDiskIntoColumn = function(column) { // REGGY
         }
         // add placed disc to boardModel array
         boardModel[height-colTotalDiscs-1][colNum] = activePlayer;
-
+        // increment counter
+        counter++
         // check for winner
         if (isWinner(activePlayer, boardModel)) {
             displayWinningMsg(activePlayer);
+            
+            let columns = document.querySelectorAll(".column")
+            for (col = 0; col < width; col++) {
+                columns[col].removeEventListener("click", columnClickHandler)
+            }
         }
-        switchToNextPlayer()
+        else if (counter === (height * width)) {
+            displayTieMsg()
+        } else
+            switchToNextPlayer()
     }
 }
 
@@ -140,6 +147,8 @@ const resetHtmlBoard = function() {
 document.querySelector('.resetButton').onclick = function() { // LEA
     // reset html board
     resetHtmlBoard();
+    // add click handlers
+    setUpColumnClickHandlers();
     // reset active player
     activePlayer = "red";
     // reset html message
@@ -153,6 +162,7 @@ document.querySelector('.resetButton').onclick = function() { // LEA
         ['', '', '', '', '', '', ''],
         ['', '', '', '', '', '', ''],
     ];
+    counter = 0
 }
 
 const initializeGame = function() { // DREW
@@ -160,6 +170,7 @@ const initializeGame = function() { // DREW
     // displayBoard(boardModel)
     displayActivePlayer()
     setUpColumnClickHandlers()
+    counter = 0
 }
 
 initializeGame()
