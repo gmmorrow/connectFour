@@ -119,8 +119,26 @@ const dropDiskIntoColumn = function(column) { // REGGY
 
 }
 
-document.querySelector('.resetButton').onclick = function() { // LEA
+const resetHtmlBoard = function() {
+    // clear discs in html
+}
 
+document.querySelector('.resetButton').onclick = function() { // LEA
+    // reset html board
+    resetHtmlBoard();
+    // reset active player
+    activePlayer = "red";
+    // reset html message
+    displayActivePlayer();
+    // reset board model
+    boardModel = [
+        ['', '', '', '', '', '', ''],
+        ['', '', '', '', '', '', ''],
+        ['', '', '', '', '', '', ''],
+        ['', '', '', '', '', '', ''],
+        ['', '', '', '', '', '', ''],
+        ['', '', '', '', '', '', ''],
+    ];
 }
 
 const initializeGame = function() { // DREW
