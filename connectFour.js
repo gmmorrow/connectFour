@@ -102,21 +102,21 @@ const columnClickHandler = function(evt) { // REGGY
 
 const dropDiskIntoColumn = function(column) { // REGGY
     // drop disc in column
-
-    if (activePlayer === "red") {
-        let newDiv = document.createElement("div");
-        newDiv.className = "disc red";
-        column.appendChild(newDiv);
-    } else if (activePlayer === "black") {
-        let newDiv = document.createElement("div");
-        newDiv.className = "disc black";
-        column.appendChild(newDiv);
+    if (column.childNodes.length < height) {
+        if (activePlayer === "red") {
+            let newDiv = document.createElement("div");
+            newDiv.className = "disc red";
+            column.appendChild(newDiv);
+        } else if (activePlayer === "black") {
+            let newDiv = document.createElement("div");
+            newDiv.className = "disc black";
+            column.appendChild(newDiv);
+        }
+        if (isWinner(activePlayer, boardModel)) {
+            displayWinningMsg();
+        }
+        switchToNextPlayer()
     }
-    if (isWinner(activePlayer, boardModel)) {
-        displayWinningMsg();
-    }
-    switchToNextPlayer()
-
 }
 
 const resetHtmlBoard = function() {
