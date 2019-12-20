@@ -92,6 +92,8 @@ const setUpColumnClickHandlers = function() { // REGGY
     let allColumns = document.querySelectorAll(".column");
     for (col = 0; col < width; col++) {
         allColumns[col].addEventListener("click", columnClickHandler);
+        // set data attributes
+        allColumns[col].dataset.columnIndex = col;
     }
 }
 
@@ -102,7 +104,11 @@ const columnClickHandler = function(evt) { // REGGY
 
 const dropDiskIntoColumn = function(column) { // REGGY
     // drop disc in column
-    if (column.childNodes.length < height) {
+
+    let colTotalDiscs= column.childNodes.length
+    let colNum = column.dataset.columnIndex
+
+    if (colTotalDiscs < height) {
         if (activePlayer === "red") {
             let newDiv = document.createElement("div");
             newDiv.className = "disc red";
@@ -112,8 +118,12 @@ const dropDiskIntoColumn = function(column) { // REGGY
             newDiv.className = "disc black";
             column.appendChild(newDiv);
         }
+        // add placed disc to boardModel array
+        boardModel[height-colTotalDiscs-1][colNum] = activePlayer;
+
+        // check for winner
         if (isWinner(activePlayer, boardModel)) {
-            displayWinningMsg();
+            displayWinningMsg(activePlayer);
         }
         switchToNextPlayer()
     }
