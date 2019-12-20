@@ -32,7 +32,7 @@ const displayTieMsg = function() { // DREW
 
 const displayActivePlayer = function() { // REGGY
     // display active player disc
-    return activePlayer;
+    displayMessage(activePlayer + "'s turn")
 }
 
 const switchToNextPlayer = function() { // REGGY
@@ -42,7 +42,7 @@ const switchToNextPlayer = function() { // REGGY
     } else if (activePlayer === "black") {
         activePlayer = "red"
     }
-    return activePlayer;
+    displayActivePlayer();
 }
 
 const isWinner = function(player, board) { // DREW
@@ -104,11 +104,11 @@ const columnClickHandler = function(evt) { // REGGY
 const dropDiskIntoColumn = function(column) { // REGGY
     // drop disc in column
 
-    if (displayActivePlayer() === "red") {
+    if (activePlayer === "red") {
         let newDiv = document.createElement("div");
         newDiv.className = "disc red";
         column.appendChild(newDiv);
-    } else if (displayActivePlayer() === "black") {
+    } else if (activePlayer === "black") {
         let newDiv = document.createElement("div");
         newDiv.className = "disc black";
         column.appendChild(newDiv);
