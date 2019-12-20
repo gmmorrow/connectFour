@@ -98,7 +98,9 @@ const setUpColumnClickHandlers = function() { // REGGY
 const columnClickHandler = function(evt) { // REGGY
     // triggers when column is clicked
     dropDiskIntoColumn(evt.target);
-    return isWinner();
+    if (isWinner()) {
+        displayWinningMsg();
+    }
 }
 
 const dropDiskIntoColumn = function(column) { // REGGY
