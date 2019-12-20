@@ -98,9 +98,6 @@ const setUpColumnClickHandlers = function() { // REGGY
 const columnClickHandler = function(evt) { // REGGY
     // triggers when column is clicked
     dropDiskIntoColumn(evt.target);
-    if (isWinner()) {
-        displayWinningMsg();
-    }
 }
 
 const dropDiskIntoColumn = function(column) { // REGGY
@@ -114,6 +111,9 @@ const dropDiskIntoColumn = function(column) { // REGGY
         let newDiv = document.createElement("div");
         newDiv.className = "disc black";
         column.appendChild(newDiv);
+    }
+    if (isWinner(activePlayer, boardModel)) {
+        displayWinningMsg();
     }
     switchToNextPlayer()
 
