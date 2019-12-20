@@ -121,6 +121,10 @@ const dropDiskIntoColumn = function(column) { // REGGY
 
 const resetHtmlBoard = function() {
     // clear discs in html
+    let allColumns = document.querySelectorAll(".column");
+    for (col = 0; col < width; col++) {
+        allColumns[col].innerHTML = '';
+    }
 }
 
 document.querySelector('.resetButton').onclick = function() { // LEA
